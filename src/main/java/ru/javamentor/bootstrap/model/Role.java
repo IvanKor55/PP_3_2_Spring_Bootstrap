@@ -12,8 +12,8 @@ public class Role implements GrantedAuthority {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "Authority")
-    private String Authority;
+    @Column(name = "authority")
+    private String authority;
 
     @ManyToMany(mappedBy = "roles", cascade = CascadeType.PERSIST)
     private List<User> user;
@@ -24,11 +24,11 @@ public class Role implements GrantedAuthority {
 
     @Override
     public String getAuthority() {
-        return this.Authority;
+        return this.authority;
     }
 
     public void setAuthority(String authority) {
-        Authority = authority;
+        this.authority = authority;
     }
 
     public List<User> getUser() {
